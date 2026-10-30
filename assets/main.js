@@ -4,20 +4,21 @@
     es: root.getAttribute("data-title-es") || document.title,
     en: root.getAttribute("data-title-en") || document.title
   };
+  var btn = document.querySelector(".lang-btn");
   function setLang(l){
     root.setAttribute("data-lang", l);
     root.setAttribute("lang", l);
     document.title = titles[l];
-    document.querySelectorAll(".lang button").forEach(function(b){
-      b.setAttribute("aria-pressed", b.getAttribute("data-set") === l ? "true" : "false");
-    });
+    if (btn){
+      var other = l === "es" ? "en" : "es";
+      btn.textContent = other.toUpperCase();
+      btn.setAttribute("aria-label", l === "es" ? "Switch to English" : "Cambiar a español");
+      btn.setAttribute("data-next", other);
+    }
     try { localStorage.setItem("lm-lang", l); } catch(e){}
   }
   var saved = null;
   try { saved = localStorage.getItem("lm-lang"); } catch(e){}
-  var initial = saved || ((navigator.language || "es").toLowerCase().indexOf("es") === 0 ? "es" : "en");
-  setLang(initial);
-  document.querySelectorAll(".lang button").forEach(function(b){
-    b.addEventListener("click", function(){ setLang(b.getAttribute("data-set")); });
-  });
+  setLang(saved || ((navigator.language || "es").toLowerCase().indexOf("es") === 0 ? "es" : "en"));
+  if (btn) btn.addEventListener("click", function(){ setLang(btn.getAttribute("data-next")); });
 })();
