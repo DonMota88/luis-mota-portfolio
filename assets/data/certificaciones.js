@@ -24,11 +24,11 @@ window.CERTS = [
 
   {
     area: "diseno",
-    nombre: "Certificación CAD en SolidWorks",
-    emisor: "MIDO Group",
+    nombre: "Curso de Diseño Mecánico Básico",
+    emisor: "MIDO Group · Programa de Robótica del Tec de Monterrey",
     fecha: "jul 2023",
     credencial: "",
-    url: ""
+    url: "certificados/mido-diseno-mecanico.png"
   },
 
   {
