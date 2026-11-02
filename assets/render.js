@@ -33,6 +33,23 @@
       return;
     }
     var names = {"ignitia":"Ignitia Rocket Team","frc-daedalus":"FRC Daedalus 7102","ftc-ikarus":"FTC Ikarus 26376","nasa-iasp":"International Air and Space Program"};
+    /* coming from a project page: ?proyecto=<slug> shows only that project's CAD */
+    var m = /[?&]proyecto=([a-z0-9-]+)/.exec(location.search);
+    var only = m && names[m[1]] ? m[1] : null;
+    if (only){
+      var bar = document.createElement("div");
+      bar.className = "cad-filter";
+      bar.innerHTML = t({es:"Mostrando CAD de",en:"Showing CAD from"}) + ' <strong>'+esc(names[only])+'</strong>'
+        + '<a class="more" href="'+base+'proyectos/'+only+'.html">'+t({es:"Volver al proyecto",en:"Back to project"})+'</a>'
+        + '<a class="more" href="'+base+'cad.html">'+t({es:"Ver todos los CAD",en:"See all CAD"})+'</a>';
+      grid.parentNode.insertBefore(bar, grid);
+      var filtered = cads.filter(function(c){ return c.proyecto === only; });
+      if (!filtered.length){
+        grid.outerHTML = '<p class="empty">'+t({es:"Todavía no hay CAD publicados de este proyecto.",en:"No CAD published for this project yet."})+'</p>';
+        return;
+      }
+      cads = filtered;
+    }
     grid.innerHTML = cads.map(function(c){
       var files = (c.archivos||[]).map(function(f){
         return '<a class="btn sm" href="'+base+esc(f.url)+'" download><svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2v8M4.5 7 8 10.5 11.5 7M2.5 13.5h11"/></svg>'+esc(f.nombre)+'</a>';

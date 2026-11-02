@@ -231,3 +231,10 @@ section{padding:clamp(4rem,8vw,6.5rem) 0}
 .how code{font-family:var(--mono);font-size:.85em;background:var(--surface-2);border:1px solid var(--border);border-radius:4px;padding:.05rem .35rem}
 @media (max-width:760px){.cad-grid{grid-template-columns:1fr}}
 .cad-grid{margin-top:2.5rem}
+
+/* CAD call-to-action on project pages */
+.cad-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem;padding:1.5rem 1.75rem;margin-bottom:2.75rem;border:1px solid rgba(240,136,62,.45);border-radius:var(--radius);background:linear-gradient(90deg,rgba(240,136,62,.10),rgba(11,15,22,.9) 60%)}
+.cad-cta p{margin:0;max-width:44ch;color:var(--text);font-size:1.05rem}
+.cad-filter{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.25rem;margin-top:2.5rem;color:var(--muted)}
+.cad-filter strong{color:var(--text);font-weight:500}
+.cad-filter + .cad-grid{margin-top:1.25rem}
