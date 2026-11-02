@@ -238,3 +238,5 @@ section{padding:clamp(4rem,8vw,6.5rem) 0}
 .cad-filter{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.25rem;margin-top:2.5rem;color:var(--muted)}
 .cad-filter strong{color:var(--text);font-weight:500}
 .cad-filter + .cad-grid{margin-top:1.25rem}
+.proj .media img,.gallery .media img{object-position:center 28%}
+.gallery .media img{object-position:center 30%}
