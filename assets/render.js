@@ -10,7 +10,7 @@
     if (!list.length) { box.remove(); return; }
     box.innerHTML = '<h4>'+t({es:"Certificaciones",en:"Certifications"})+'</h4><ul>' + list.map(function(c){
       var name = c.url ? '<a href="'+esc(c.url)+'" target="_blank" rel="noopener">'+esc(c.nombre)+'</a>' : esc(c.nombre);
-      return '<li>'+name+'<small>'+esc(c.emisor)+(c.fecha ? ' · '+esc(c.fecha) : '')+'</small></li>';
+      return '<li>'+name+'<small>'+esc(c.emisor)+(c.fecha ? ' · '+esc(c.fecha) : '')+(c.credencial ? '<br>ID: '+esc(c.credencial) : '')+'</small></li>';
     }).join("") + '</ul>';
   });
   var other = document.querySelector(".certs-other");
@@ -19,7 +19,7 @@
     if (o.length) {
       other.innerHTML = '<div class="skill"><h3>'+t({es:"Otras certificaciones",en:"Other certifications"})+'</h3><div class="certs"><ul>' + o.map(function(c){
         var name = c.url ? '<a href="'+esc(c.url)+'" target="_blank" rel="noopener">'+esc(c.nombre)+'</a>' : esc(c.nombre);
-        return '<li>'+name+'<small>'+esc(c.emisor)+(c.fecha ? ' · '+esc(c.fecha) : '')+'</small></li>';
+        return '<li>'+name+'<small>'+esc(c.emisor)+(c.fecha ? ' · '+esc(c.fecha) : '')+(c.credencial ? '<br>ID: '+esc(c.credencial) : '')+'</small></li>';
       }).join("") + '</ul></div></div>';
     } else other.remove();
   }

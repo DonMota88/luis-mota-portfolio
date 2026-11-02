@@ -14,20 +14,40 @@
 window.CERTS = [
 
   {
-    area: "otras",
-    nombre: "Certificación en gestión empresarial",
+    area: "diseno",
+    nombre: "Certified SOLIDWORKS Professional (CSWP)",
+    emisor: "Dassault Systèmes",
+    fecha: "ago 2026",
+    credencial: "C-KPLY7NUM6X",
+    url: "https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-KPLY7NUM6X"
+  },
+
+  {
+    area: "diseno",
+    nombre: "Certificación CAD en SolidWorks",
     emisor: "MIDO Group",
-    fecha: "",
+    fecha: "jul 2023",
+    credencial: "",
     url: ""
   },
 
-  /* EJEMPLO (borra las barras y asteriscos para activarlo):
+  {
+    area: "otras",
+    nombre: "TOEFL iBT B2",
+    emisor: "ETS",
+    fecha: "",
+    credencial: "",
+    url: ""
+  },
+
+  /* PLANTILLA para una nueva (copia el bloque sin las barras y asteriscos):
   {
     area: "diseno",
-    nombre: "Certified SOLIDWORKS Associate (CSWA)",
-    emisor: "Dassault Systèmes",
-    fecha: "2026",
-    url: "https://..."
+    nombre: "Nombre de la certificación",
+    emisor: "Quién la emite",
+    fecha: "mes año",
+    credencial: "ID de la credencial (opcional)",
+    url: "enlace para verificarla (opcional)"
   },
   */
 
