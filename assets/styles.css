@@ -240,3 +240,100 @@ section{padding:clamp(4rem,8vw,6.5rem) 0}
 .cad-filter + .cad-grid{margin-top:1.25rem}
 .proj .media img,.gallery .media img{object-position:center 28%}
 .gallery .media img{object-position:center 30%}
+
+/* =====================================================================
+   POLISH PASS (design review): tone steps instead of hairlines,
+   headings instead of eyebrows, drawn fallbacks, motion layer
+   ===================================================================== */
+.hero::before{content:none}
+.hero{isolation:isolate}
+.launch{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.launch .trail{stroke-dasharray:1;stroke-dashoffset:1;animation:trail 3.2s .4s cubic-bezier(.45,0,.2,1) forwards}
+@keyframes trail{to{stroke-dashoffset:0}}
+.launch .plume{transform-box:fill-box;transform-origin:center;animation:plume .12s ease-in-out infinite alternate}
+@keyframes plume{from{transform:scale(.9)}to{transform:scale(1.12)}}
+@media (max-width:860px){.launch{opacity:.55}}
+
+/* headings replace eyebrow labels */
+.sec-title{margin-bottom:2rem}
+.side-title{font-size:1.05rem;color:var(--muted);font-weight:500;margin:0 0 .25rem}
+.sec-head{border:0;padding:0}
+
+/* surfaces separated by tone, not by 1px outlines */
+.skill,.card,.feature,.proj,.cad,.next,.photo{border:0}
+.skill,.card{background:#0C1119}
+.feature,.proj,.cad,.next{background:#0C1119;transition:background .25s ease,transform .25s ease}
+.feature:hover,.proj:hover,.next:hover{background:#111824}
+.proj:hover{transform:translateY(-3px)}
+.chips li{border:0;background:#161E2B}
+.chips li.key{background:rgba(240,136,62,.16);color:#FFD2AE}
+.exp{border:0}
+.exp > li{border:0;padding:1.4rem 0;border-radius:var(--radius);transition:background .25s ease}
+.exp > li + li{margin-top:.25rem}
+.awards{border:0;gap:.6rem 3rem}
+.awards li{border:0;background:#0C1119;border-radius:8px;padding:1rem 1.2rem}
+.meta{border:0;background:#0C1119;border-radius:var(--radius);padding:1.25rem 1.5rem}
+.cover,.gallery .media{border:0}
+.go{border-top:0;padding-top:.5rem}
+.files{border-top:0}
+.stats{border:0;background:#080C13}
+.stat{border-left:0}
+.contact{border-top:0;background:#080C13}
+.foot{border-top:0}
+.top{border-bottom:0;background:rgba(5,7,11,.9)}
+.cad-cta{background:#1A120A;border:0}
+.spec dt{color:var(--muted);font-size:.9rem;margin-top:1.1rem}
+.spec dt:first-child{margin-top:0}
+.spec dd{margin:.4rem 0 0}
+
+/* drawn fallback sits under the photo; a real photo covers it */
+.media .art,.photo .art{position:absolute;inset:0;width:100%;height:100%}
+.media img,.photo img{z-index:1}
+.media,.photo{background:#111824}
+
+/* media move on hover; one slow drift on the portrait */
+.media img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.feature:hover .media img,.proj:hover .media img,.gallery .media:hover img{transform:scale(1.04)}
+@media (prefers-reduced-motion:no-preference){
+  .photo img{animation:drift 18s ease-in-out infinite alternate}
+  @keyframes drift{from{transform:scale(1.02) translateY(0)}to{transform:scale(1.08) translateY(-1.5%)}}
+}
+
+/* controls answer the hand */
+.btn{transition:border-color .2s,background .2s,color .2s,transform .12s}
+.btn:active{transform:scale(.97)}
+.more .arrow,.go .arrow{transition:transform .2s}
+.more:hover .arrow{transform:translateX(3px)}
+
+/* hero load sequence (pure CSS, so it plays even without script) */
+@media (prefers-reduced-motion:no-preference){
+  .hero h1,.hero .t1,.hero .t2,.hero .roleline,.hero .desc,.hero .cta,.hero .photo{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+  .hero .t1{animation-delay:.08s}.hero .t2{animation-delay:.16s}.hero .roleline{animation-delay:.24s}
+  .hero .desc{animation-delay:.32s}.hero .cta{animation-delay:.4s}.hero .photo{animation-delay:.2s}
+  @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  html.rv-ready .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform .7s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+  html.rv-ready .rv.in{opacity:1;transform:none}
+}
+
+/* pending notes are for the owner only */
+.todo{display:none}
+html.draft .todo{display:block}
+
+/* mobile menu */
+.menu-btn{display:none;font:inherit;font-size:.92rem;color:var(--text);background:#111824;border:0;border-radius:6px;padding:.45rem .8rem;cursor:pointer}
+.mnav{display:grid;padding:.5rem clamp(1.25rem,4vw,2.5rem) 1rem;background:#05070B}
+.mnav[hidden]{display:none}
+.mnav a{padding:.75rem 0;text-decoration:none;font-size:1.1rem}
+@media (max-width:900px){.menu-btn{display:inline-block}.right .btn.sm{display:none}}
+@media (min-width:901px){.mnav{display:none !important}}
+
+/* CAD empty state */
+.empty{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 2rem;background:#0C1119;border-radius:var(--radius);padding:2rem;margin-top:2.5rem;color:var(--text)}
+.empty p{margin:0;max-width:52ch}
+.p-head h1{font-size:clamp(2rem,6vw,4.8rem)}
+.stat b span{font-size:inherit;color:inherit}
+.skills{grid-template-columns:repeat(4,1fr);align-items:start;margin-bottom:1rem}
+.certs-link{margin:0 0 3.5rem}
+@media (max-width:1100px){.skills{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.skills{grid-template-columns:1fr}}
+.certs h4{font-family:inherit;text-transform:none;letter-spacing:0;font-size:.9rem;font-weight:600;color:var(--accent)}

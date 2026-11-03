@@ -27,9 +27,10 @@
   /* ---- CAD portfolio ---- */
   var grid = document.getElementById("cad-grid");
   if (grid){
-    var cads = window.CADS || [];
+    var draft = document.documentElement.classList.contains("draft") || location.protocol === "file:" || /^(localhost|127\.)/.test(location.hostname) || /[?&]borrador\b/.test(location.search);
+    var cads = (window.CADS || []).filter(function(c){ return draft || !c.ejemplo; });
     if (!cads.length){
-      grid.outerHTML = '<p class="empty">'+t({es:"Próximamente: renders y archivos de mis diseños.",en:"Coming soon: renders and files of my designs."})+'</p>';
+      grid.outerHTML = '<div class="empty"><p>'+t({es:"Estoy preparando los renders y archivos de mis diseños. Mientras tanto, puedes ver cómo los uso en mis proyectos.",en:"I'm preparing renders and files of my designs. In the meantime, see how I use them in my projects."})+'</p><a class="btn" href="'+base+'index.html#proyectos">'+t({es:"Ver proyectos",en:"View projects"})+'</a></div>';
       return;
     }
     var names = {"ignitia":"Ignitia Rocket Team","frc-daedalus":"FRC Daedalus 7102","ftc-ikarus":"FTC Ikarus 26376","nasa-iasp":"International Air and Space Program"};

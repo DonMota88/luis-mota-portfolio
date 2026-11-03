@@ -32,12 +32,29 @@
       <a href="index.html#contacto"><span data-l="es">Contacto</span><span data-l="en">Contact</span></a>
     </nav>
     <div class="right">
+      <button type="button" class="menu-btn" aria-expanded="false" aria-controls="mnav"><span data-l="es">Menú</span><span data-l="en">Menu</span></button>
       <button type="button" class="lang-btn">EN</button>
       <a class="btn sm" href="cv/Luis_Mota_CV.pdf" download><span data-l="es">Descargar CV</span><span data-l="en">Download CV</span></a>
     </div>
   </div>
+  <nav class="mnav" id="mnav" aria-label="Móvil" hidden>
+    <a href="index.html#sobre-mi"><span data-l="es">Sobre mí</span><span data-l="en">About</span></a>
+    <a href="index.html#experiencia"><span data-l="es">Experiencia</span><span data-l="en">Experience</span></a>
+    <a href="index.html#proyectos"><span data-l="es">Proyectos</span><span data-l="en">Projects</span></a>
+    <a href="cad.html">CAD</a>
+    <a href="index.html#reconocimientos"><span data-l="es">Reconocimientos</span><span data-l="en">Awards</span></a>
+    <a href="index.html#contacto"><span data-l="es">Contacto</span><span data-l="en">Contact</span></a>
+  </nav>
 </header>
 <main><section class="hero" id="inicio">
+  <svg class="launch" viewBox="0 0 1600 1000" preserveAspectRatio="xMaxYMin slice" aria-hidden="true">
+    <defs><linearGradient id="trailg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#F0883E" stop-opacity="0"/><stop offset=".7" stop-color="#F0883E" stop-opacity=".25"/><stop offset="1" stop-color="#FFC58A" stop-opacity=".6"/></linearGradient>
+    <radialGradient id="plumeg"><stop offset="0" stop-color="#FFD9A8" stop-opacity=".95"/><stop offset=".4" stop-color="#F0883E" stop-opacity=".45"/><stop offset="1" stop-color="#F0883E" stop-opacity="0"/></radialGradient></defs>
+    <path id="ascent" class="trail" d="M 60 1000 C 160 780, 330 560, 640 400 S 1180 190, 1440 130" fill="none" stroke="url(#trailg)" stroke-width="2.2" pathLength="1"/>
+    <g class="ship"><g transform="rotate(90)"><circle cx="0" cy="18" r="18" fill="url(#plumeg)" class="plume"/>
+      <path d="M0 -14C4 -8 5 -2 5 6v4h-10v-4c0-8 1-14 5-20z" fill="#EDEFF3"/><path d="M-5 5-9 12l4-2zM5 5l4 7-4-2z" fill="#EDEFF3"/></g>
+      <animateMotion dur="3.2s" begin="0.4s" fill="freeze" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".45 0 .2 1"><mpath href="#ascent"/></animateMotion></g>
+  </svg>
   <div class="wrap">
     <div>
       <h1>Luis Mota</h1>
@@ -54,7 +71,6 @@
     </div>
     <figure class="photo" style="margin:0">
       <img src="img/perfil.jpg" alt="Luis Humberto Mota Reyes" onerror="this.remove()">
-      <span class="ph-txt"><span data-l="es">Tu foto profesional<br>img/perfil.jpg</span><span data-l="en">Your headshot<br>img/perfil.jpg</span></span>
     </figure>
   </div>
 </section>
@@ -68,15 +84,15 @@
 </div>
 <section id="sobre-mi">
   <div class="wrap">
-    <span class="label"><span data-l="es">SOBRE MÍ</span><span data-l="en">ABOUT</span></span>
+    <h2 class="sec-title"><span data-l="es">Sobre mí</span><span data-l="en">About me</span></h2>
+    <div class="skills"><div class="skill"><h3><span data-l="es">Diseño y CAD</span><span data-l="en">Design &amp; CAD</span></h3><ul class="chips"><li class="key">SolidWorks (CSWP)</li><li>Fusion 360</li><li>Onshape</li><li><span data-l="es">Planos de ingeniería</span><span data-l="en">Engineering drawings</span></li><li><span data-l="es">Ensambles</span><span data-l="en">Assemblies</span></li></ul><div class="certs" data-area="diseno"></div></div><div class="skill"><h3><span data-l="es">Análisis y simulación</span><span data-l="en">Analysis &amp; simulation</span></h3><ul class="chips"><li class="key">FEA</li><li class="key">CFD</li><li>MATLAB</li></ul><div class="certs" data-area="analisis"></div></div><div class="skill"><h3><span data-l="es">Manufactura</span><span data-l="en">Manufacturing</span></h3><ul class="chips"><li class="key">DFM</li><li>CNC</li><li><span data-l="es">Maquinado convencional</span><span data-l="en">Conventional machining</span></li><li><span data-l="es">Materiales compuestos</span><span data-l="en">Composites</span></li><li><span data-l="es">Ensamble mecánico</span><span data-l="en">Mechanical assembly</span></li></ul><div class="certs" data-area="manufactura"></div></div><div class="skill"><h3><span data-l="es">Pruebas e integración</span><span data-l="en">Testing &amp; integration</span></h3><ul class="chips"><li>Static fire</li><li><span data-l="es">Desarrollo de prototipos</span><span data-l="en">Prototyping</span></li><li><span data-l="es">Integración de sistemas</span><span data-l="en">System integration</span></li></ul><div class="certs" data-area="pruebas"></div></div><div class="certs-other"></div></div><p class="certs-link"><a class="more" href="https://www.linkedin.com/in/luis-humberto-mota-reyes-05086a364/details/certifications/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span data-l="es">Todas mis certificaciones en LinkedIn</span><span data-l="en">All my certifications on LinkedIn</span></a></p>
     <div class="about">
       <div>
-        <div class="skills"><div class="skill"><h3><span data-l="es">Diseño y CAD</span><span data-l="en">Design &amp; CAD</span></h3><ul class="chips"><li class="key">SolidWorks (CSWP)</li><li>Fusion 360</li><li>Onshape</li><li><span data-l="es">Planos de ingeniería</span><span data-l="en">Engineering drawings</span></li><li><span data-l="es">Ensambles</span><span data-l="en">Assemblies</span></li></ul><div class="certs" data-area="diseno"></div></div><div class="skill"><h3><span data-l="es">Análisis y simulación</span><span data-l="en">Analysis &amp; simulation</span></h3><ul class="chips"><li class="key">FEA</li><li class="key">CFD</li><li>MATLAB</li></ul><div class="certs" data-area="analisis"></div></div><div class="skill"><h3><span data-l="es">Manufactura</span><span data-l="en">Manufacturing</span></h3><ul class="chips"><li class="key">DFM</li><li>CNC</li><li><span data-l="es">Maquinado convencional</span><span data-l="en">Conventional machining</span></li><li><span data-l="es">Materiales compuestos</span><span data-l="en">Composites</span></li><li><span data-l="es">Ensamble mecánico</span><span data-l="en">Mechanical assembly</span></li></ul><div class="certs" data-area="manufactura"></div></div><div class="skill"><h3><span data-l="es">Pruebas e integración</span><span data-l="en">Testing &amp; integration</span></h3><ul class="chips"><li>Static fire</li><li><span data-l="es">Desarrollo de prototipos</span><span data-l="en">Prototyping</span></li><li><span data-l="es">Integración de sistemas</span><span data-l="en">System integration</span></li></ul><div class="certs" data-area="pruebas"></div></div><div class="certs-other"></div></div><p class="certs-link"><a class="more" href="https://www.linkedin.com/in/luis-humberto-mota-reyes-05086a364/details/certifications/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span data-l="es">Todas mis certificaciones en LinkedIn</span><span data-l="en">All my certifications on LinkedIn</span></a></p>
         <p class="lead" data-l="es">Soy estudiante de Ingeniería Mecánica en el Tecnológico de Monterrey. En Ignitia, el equipo de cohetería experimental del Tec, lidero el equipo de Diseño y Manufactura y formo parte de la mesa directiva: llevamos cada componente del modelo CAD a la simulación, al taller y a la prueba estática.</p><p class="lead" data-l="en">I'm a Mechanical Engineering student at Tecnológico de Monterrey. At Ignitia, Tec's experimental rocketry team, I lead the Design &amp; Manufacturing team and sit on the board: we take every component from CAD model to simulation, to the shop floor and to static fire.</p>
         <p class="lead" data-l="es">Antes de los cohetes vinieron los robots: fui capitán de FRC Daedalus 7102, campeón nacional en 2025, y fundé el equipo FTC Ikarus. Ahí aprendí a llevar un diseño mecánico de la idea a la competencia y a coordinar equipos multidisciplinarios bajo presión. Busco aplicar eso en la industria aeroespacial.</p><p class="lead" data-l="en">Before rockets came robots: I captained FRC Daedalus 7102, Mexico's 2025 national champion, and founded FTC team Ikarus. That's where I learned to take a mechanical design from idea to competition and to coordinate multidisciplinary teams under pressure. I want to bring that to the aerospace industry.</p>
       </div>
       <aside class="side">
-        <span class="label" style="margin:0"><span data-l="es">EDUCACIÓN</span><span data-l="en">EDUCATION</span></span>
+        <h3 class="side-title"><span data-l="es">Educación</span><span data-l="en">Education</span></h3>
         <div class="card">
           <h3><span data-l="es">Ingeniería Mecánica</span><span data-l="en">B.S. Mechanical Engineering</span></h3>
           <p><span data-l="es">Tecnológico de Monterrey, Campus Guadalajara</span><span data-l="en">Tecnológico de Monterrey, Guadalajara Campus</span></p>
@@ -96,7 +112,7 @@
 <section id="experiencia">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="label"><span data-l="es">EXPERIENCIA</span><span data-l="en">EXPERIENCE</span></span><h2><span data-l="es">Cohetería y robótica de competencia</span><span data-l="en">Rocketry and competition robotics</span></h2></div>
+      <div><h2><span data-l="es">Cohetería y robótica de competencia</span><span data-l="en">Rocketry and competition robotics</span></h2></div>
       <a class="more" href="https://www.linkedin.com/in/luis-humberto-mota-reyes-05086a364/details/experience/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span data-l="es">Experiencia completa en LinkedIn</span><span data-l="en">Full experience on LinkedIn</span></a>
     </div>
     <ol class="exp"><li class="now">
@@ -126,10 +142,13 @@
 <section id="proyectos">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="label"><span data-l="es">PROYECTOS</span><span data-l="en">PROJECTS</span></span><h2><span data-l="es">Del modelo CAD a la plataforma de lanzamiento</span><span data-l="en">From CAD model to launch pad</span></h2></div>
+      <div><h2><span data-l="es">Del modelo CAD a la plataforma de lanzamiento</span><span data-l="en">From CAD model to launch pad</span></h2></div>
     </div>
     <a class="feature" href="proyectos/ignitia.html">
-  <figure class="media"><img src="img/ignitia.jpg" alt="Ignitia Rocket Team" loading="lazy" onerror="this.remove()"><span class="ph-txt">img/ignitia.jpg</span></figure>
+  <figure class="media"><svg class="art" viewBox="0 0 400 250" aria-hidden="true"><g fill="none" stroke="#EDEFF3" stroke-width="1.6" stroke-linejoin="round" opacity=".55">
+<path d="M248 70c26 6 44 16 56 28-12 4-30 8-56 6l-96 0-14-17 14-17z"/><path d="M152 70l-26-26h24l30 26M152 104l-26 26h24l30-26"/><path d="M200 70v34M226 70v34"/></g>
+<circle cx="112" cy="87" r="34" fill="#F0883E" opacity=".18"/><circle cx="124" cy="87" r="14" fill="#F0883E" opacity=".55"/>
+<path d="M30 190C120 170 220 120 300 100" fill="none" stroke="#F0883E" stroke-width="1.4" stroke-dasharray="3 9" opacity=".6"/></svg><img src="img/ignitia.jpg" alt="Ignitia Rocket Team" loading="lazy" onerror="this.remove()"></figure>
   <div class="pbody">
     <span class="tag"><span data-l="es">Cohetería experimental</span><span data-l="en">Experimental rocketry</span></span>
     <h3>Ignitia Rocket Team</h3>
@@ -140,7 +159,10 @@
   </div>
 </a>
     <div class="grid3"><a class="proj" href="proyectos/frc-daedalus.html">
-  <figure class="media"><img src="img/frc-daedalus.jpg" alt="FRC Daedalus 7102" loading="lazy" onerror="this.remove()"><span class="ph-txt">img/frc-daedalus.jpg</span></figure>
+  <figure class="media"><svg class="art" viewBox="0 0 400 250" aria-hidden="true"><g fill="none" stroke="#EDEFF3" stroke-width="1.6" stroke-linejoin="round" opacity=".55">
+<rect x="110" y="120" width="180" height="56" rx="6"/><circle cx="140" cy="186" r="16"/><circle cx="200" cy="186" r="16"/><circle cx="260" cy="186" r="16"/>
+<path d="M240 120V78l46-26M286 52l20 8M286 52l14-16"/><path d="M130 120V100h60v20"/></g>
+<circle cx="200" cy="186" r="5" fill="#F0883E"/><circle cx="140" cy="186" r="5" fill="#F0883E" opacity=".6"/><circle cx="260" cy="186" r="5" fill="#F0883E" opacity=".6"/></svg><img src="img/frc-daedalus.jpg" alt="FRC Daedalus 7102" loading="lazy" onerror="this.remove()"></figure>
   <div class="pbody">
     <span class="tag"><span data-l="es">Campeón Nacional 2025</span><span data-l="en">2025 National Champion</span></span>
     <h3>FRC Daedalus 7102</h3>
@@ -150,7 +172,10 @@
     <span class="go"><span data-l="es">Ver proyecto</span><span data-l="en">View project</span><svg class="arrow" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4"/></svg></span>
   </div>
 </a><a class="proj" href="proyectos/ftc-ikarus.html">
-  <figure class="media"><img src="img/ftc-ikarus.jpg" alt="FTC Ikarus 26376" loading="lazy" onerror="this.remove()"><span class="ph-txt">img/ftc-ikarus.jpg</span></figure>
+  <figure class="media"><svg class="art" viewBox="0 0 400 250" aria-hidden="true"><g fill="none" stroke="#EDEFF3" stroke-width="1.6" stroke-linejoin="round" opacity=".55">
+<rect x="110" y="120" width="180" height="56" rx="6"/><circle cx="140" cy="186" r="16"/><circle cx="200" cy="186" r="16"/><circle cx="260" cy="186" r="16"/>
+<path d="M240 120V78l46-26M286 52l20 8M286 52l14-16"/><path d="M130 120V100h60v20"/></g>
+<circle cx="200" cy="186" r="5" fill="#F0883E"/><circle cx="140" cy="186" r="5" fill="#F0883E" opacity=".6"/><circle cx="260" cy="186" r="5" fill="#F0883E" opacity=".6"/></svg><img src="img/ftc-ikarus.jpg" alt="FTC Ikarus 26376" loading="lazy" onerror="this.remove()"></figure>
   <div class="pbody">
     <span class="tag"><span data-l="es">Think Award</span><span data-l="en">Think Award</span></span>
     <h3>FTC Ikarus 26376</h3>
@@ -160,7 +185,8 @@
     <span class="go"><span data-l="es">Ver proyecto</span><span data-l="en">View project</span><svg class="arrow" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4"/></svg></span>
   </div>
 </a><a class="proj" href="proyectos/nasa-iasp.html">
-  <figure class="media"><img src="img/nasa-iasp.jpg" alt="International Air and Space Program 2025" loading="lazy" onerror="this.remove()"><span class="ph-txt">img/nasa-iasp.jpg</span></figure>
+  <figure class="media"><svg class="art" viewBox="0 0 400 250" aria-hidden="true"><ellipse cx="200" cy="125" rx="150" ry="46" transform="rotate(-14 200 125)" fill="none" stroke="#EDEFF3" stroke-width="1.4" opacity=".4"/>
+<circle cx="200" cy="125" r="34" fill="#1B2436"/><circle cx="318" cy="88" r="6" fill="#F0883E"/></svg><img src="img/nasa-iasp.jpg" alt="International Air and Space Program 2025" loading="lazy" onerror="this.remove()"></figure>
   <div class="pbody">
     <span class="tag"><span data-l="es">3er lugar · NASA &amp; AEXA</span><span data-l="en">3rd place · NASA &amp; AEXA</span></span>
     <h3>International Air and Space Program 2025</h3>
@@ -175,7 +201,7 @@
 <section id="reconocimientos">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="label"><span data-l="es">RECONOCIMIENTOS</span><span data-l="en">AWARDS</span></span><h2><span data-l="es">Premios y distinciones</span><span data-l="en">Awards and honors</span></h2></div>
+      <div><h2><span data-l="es">Premios y distinciones</span><span data-l="en">Awards and honors</span></h2></div>
       <a class="more" href="https://www.linkedin.com/in/luis-humberto-mota-reyes-05086a364/details/honors/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span data-l="es">Ver en LinkedIn</span><span data-l="en">View on LinkedIn</span></a>
     </div>
     <ul class="awards"><li><span class="yr">2025</span><div><strong><span data-l="es">Campeón Nacional FRC México</span><span data-l="en">FRC Mexico National Champion</span></strong><span class="sub">FRC Daedalus 7102</span></div></li><li><span class="yr">2025</span><div><strong><span data-l="es">Representante de México en el Mundial de robótica</span><span data-l="en">Represented Mexico at the FIRST World Championship</span></strong><span class="sub">Houston, Texas</span></div></li><li><span class="yr">2025</span><div><strong><span data-l="es">3er lugar · International Air and Space Program</span><span data-l="en">3rd place · International Air and Space Program</span></strong><span class="sub">AEXA &amp; NASA · Space Center Houston · MIRKOL</span></div></li><li><span class="yr">FTC</span><div><strong><span data-l="es">Think Award</span><span data-l="en">Think Award</span></strong><span class="sub">FTC Ikarus 26376</span></div></li><li><span class="yr">FRC</span><div><strong><span data-l="es">Mejor Sistema de Control (2 veces)</span><span data-l="en">Best Control System (2×)</span></strong><span class="sub">FRC Daedalus 7102</span></div></li><li><span class="yr">FRC</span><div><strong><span data-l="es">Mejor Robot Autónomo</span><span data-l="en">Best Autonomous Robot</span></strong><span class="sub">FRC Daedalus 7102</span></div></li><li><span class="yr">FRC</span><div><strong><span data-l="es">2º lugar Impact Award</span><span data-l="en">2nd place Impact Award</span></strong><span class="sub">FRC Daedalus 7102</span></div></li><li><span class="yr">2022</span><div><strong><span data-l="es">SASMO</span><span data-l="en">SASMO</span></strong><span class="sub">Singapore and Asian Schools Math Olympiad</span></div></li></ul>
@@ -184,7 +210,7 @@
 <section id="liderazgo" style="padding-top:clamp(2rem,4vw,3rem)">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="label"><span data-l="es">MÁS ALLÁ DE LA INGENIERÍA</span><span data-l="en">BEYOND ENGINEERING</span></span><h2><span data-l="es">Liderazgo e impacto social</span><span data-l="en">Leadership &amp; social impact</span></h2></div>
+      <div><h2><span data-l="es">Liderazgo e impacto social</span><span data-l="en">Leadership &amp; social impact</span></h2></div>
       <a class="more" href="https://www.linkedin.com/in/luis-humberto-mota-reyes-05086a364/details/volunteering-experiences/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span data-l="es">Voluntariado en LinkedIn</span><span data-l="en">Volunteering on LinkedIn</span></a>
     </div>
     <div class="cols"><div class="card"><h3><span data-l="es">Mentoría STEAM</span><span data-l="en">STEAM mentoring</span></h3><div data-l="es"><ul><li>Mentor del equipo Sinavolt · NASA Astrocamp</li><li>Organización del Off-Season Guadalajara</li><li>Planeación de la Beca STEAM y capacitaciones técnicas</li></ul></div><div data-l="en"><ul><li>Mentor to team Sinavolt · NASA Astrocamp</li><li>Organizer of the Guadalajara Off-Season</li><li>STEAM Scholarship planning and technical training</li></ul></div></div><div class="card"><h3><span data-l="es">Liderazgo estudiantil</span><span data-l="en">Student leadership</span></h3><div data-l="es"><ul><li>Fundador y presidente de la Sociedad de Debate Kairos</li><li>Equipo de debate Apolo · Carnero · VIVETEC</li></ul></div><div data-l="en"><ul><li>Founder and president of Kairos Debate Society</li><li>Apolo Debate Team · Carnero · VIVETEC</li></ul></div></div><div class="card"><h3><span data-l="es">Impacto social</span><span data-l="en">Social impact</span></h3><div data-l="es"><ul><li>Líder de cuadrilla en TECHO, construcción de viviendas</li><li>Voluntariado con niños de oncología, Hospital Civil</li><li>Programa de sustentabilidad y reciclaje con HPE</li></ul></div><div data-l="en"><ul><li>Crew leader at TECHO, building homes</li><li>Volunteer with pediatric oncology patients, Hospital Civil</li><li>Sustainability and recycling program with HPE</li></ul></div></div></div>
@@ -193,9 +219,8 @@
 </main>
 <section class="contact" id="contacto">
   <div class="wrap">
-    <span class="label"><span data-l="es">CONTACTO</span><span data-l="en">CONTACT</span></span>
-    <h2><span data-l="es">Disponible para prácticas en la industria aeroespacial y mecánica.</span><span data-l="en">Open to internships in the aerospace and mechanical industry.</span></h2>
-    <p><span data-l="es">Diseño mecánico, estructuras, manufactura y pruebas. Escríbeme y te respondo en menos de 48 horas.</span><span data-l="en">Mechanical design, structures, manufacturing and testing. Reach out and I'll reply within 48 hours.</span></p>
+    <h2><span data-l="es">Abierto a prácticas</span><span data-l="en">Open to internships</span></h2>
+    <p><span data-l="es">En la industria aeroespacial y mecánica: diseño mecánico, estructuras, manufactura y pruebas. Escríbeme y te respondo en menos de 48 horas.</span><span data-l="en">In the aerospace and mechanical industry: mechanical design, structures, manufacturing and testing. Reach out and I'll reply within 48 hours.</span></p>
     <div class="cta">
       <a class="btn primary" href="mailto:lhmota88@gmail.com"><svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="1.5"/><path d="m2 4 6 5 6-5"/></svg>lhmota88@gmail.com</a>
       <a class="btn" href="https://www.linkedin.com/in/luis-humberto-mota-reyes-05086a364" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>

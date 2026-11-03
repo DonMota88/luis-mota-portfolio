@@ -22,3 +22,52 @@
   setLang(saved || ((navigator.language || "es").toLowerCase().indexOf("es") === 0 ? "es" : "en"));
   if (btn) btn.addEventListener("click", function(){ setLang(btn.getAttribute("data-next")); });
 })();
+
+/* ---- draft mode: pending notes and the CAD example only show locally or with ?borrador ---- */
+(function(){
+  var draft = location.protocol === "file:" || /^(localhost|127\.)/.test(location.hostname) || /[?&]borrador\b/.test(location.search);
+  if (draft) document.documentElement.classList.add("draft");
+})();
+
+/* ---- mobile menu ---- */
+(function(){
+  var b = document.querySelector(".menu-btn"), n = document.getElementById("mnav");
+  if (!b || !n) return;
+  b.addEventListener("click", function(){
+    var open = b.getAttribute("aria-expanded") === "true";
+    b.setAttribute("aria-expanded", String(!open)); n.hidden = open;
+  });
+  n.addEventListener("click", function(e){ if (e.target.tagName === "A"){ b.setAttribute("aria-expanded","false"); n.hidden = true; } });
+})();
+
+/* ---- motion: staggered entrances per section, launch respects reduced motion ---- */
+(function(){
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce){
+    document.querySelectorAll(".launch animateMotion").forEach(function(a){ a.setAttribute("dur","0.01s"); a.setAttribute("begin","0s"); });
+    return;
+  }
+  if (!("IntersectionObserver" in window)) return;
+  var groups = [
+    ".sec-head", ".sec-title", ".skill", ".about .lead", ".side > *",
+    ".exp > li", ".feature", ".proj", ".awards li", ".cols > *",
+    ".contact h2", ".contact p", ".contact .cta",
+    ".p-head > *", ".meta", ".cover", ".blk", ".spec", ".gallery .media", ".cad-cta", ".cad", ".next", ".stat"
+  ];
+  var els = [];
+  groups.forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ if (els.indexOf(el) < 0) els.push(el); }); });
+  // stagger index within each parent
+  var counts = new Map();
+  els.forEach(function(el){
+    var k = el.parentNode, i = counts.get(k) || 0; counts.set(k, i + 1);
+    el.style.setProperty("--d", Math.min(i, 8) * 75 + "ms");
+    el.classList.add("rv");
+  });
+  document.documentElement.classList.add("rv-ready");
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  els.forEach(function(el){ io.observe(el); });
+  // safety net: never leave content hidden
+  setTimeout(function(){ els.forEach(function(el){ if (el.getBoundingClientRect().top < innerHeight) el.classList.add("in"); }); }, 1800);
+})();
