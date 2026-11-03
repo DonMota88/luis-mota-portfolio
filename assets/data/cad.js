@@ -14,6 +14,34 @@
 window.CADS = [
 
   {
+    titulo:  { es: "Pieza para el robot de FRC", en: "Part for the FRC robot" },
+    descripcion: {
+      es: "Pieza diseñada en SolidWorks para el robot de FRC Daedalus 7102.",
+      en: "Part designed in SolidWorks for the FRC Daedalus 7102 robot."
+    },
+    software: ["SolidWorks"],
+    imagen: "cad/img/frc-pieza-1.jpg",
+    archivos: [],
+    proyecto: "frc-daedalus",
+    grabcad: "",
+    pendiente: "Pendiente: nombre de la pieza, qué hace en el robot, material y archivo STEP."
+  },
+
+  {
+    titulo:  { es: "Estructura para el robot de FRC", en: "Structure for the FRC robot" },
+    descripcion: {
+      es: "Ensamble estructural en SolidWorks para el robot de FRC Daedalus 7102.",
+      en: "Structural assembly in SolidWorks for the FRC Daedalus 7102 robot."
+    },
+    software: ["SolidWorks"],
+    imagen: "cad/img/frc-pieza-2.jpg",
+    archivos: [],
+    proyecto: "frc-daedalus",
+    grabcad: "",
+    pendiente: "Pendiente: qué mecanismo es, cómo funciona, material y archivo STEP."
+  },
+
+  {
     ejemplo: true,   /* <- borra este bloque completo cuando agregues tus CAD reales */
     titulo:  { es: "Ejemplo: aleta de cohete", en: "Example: rocket fin" },
     descripcion: {

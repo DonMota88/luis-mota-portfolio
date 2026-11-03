@@ -62,6 +62,7 @@
         + '<figure class="media"><img src="'+base+esc(c.imagen)+'" alt="" loading="lazy" onerror="this.remove()"><span class="ph-txt">'+esc(c.imagen)+'</span></figure>'
         + '<div class="pbody">'
         + (c.ejemplo ? '<span class="todo" style="margin:0 0 1rem">Ejemplo: reemplázalo con tu CAD real en assets/data/cad.js</span>' : '')
+        + (c.pendiente ? '<span class="todo" style="margin:0 0 1rem">'+esc(c.pendiente)+'</span>' : '')
         + '<h3>'+t(c.titulo)+'</h3>'
         + '<ul class="chips" style="margin:.4rem 0 1rem">'+(c.software||[]).map(function(s){return '<li>'+esc(s)+'</li>';}).join("")+'</ul>'
         + '<p>'+t(c.descripcion)+'</p>'
