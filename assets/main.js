@@ -68,17 +68,36 @@
     entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
   }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
   els.forEach(function(el){ io.observe(el); });
+  // at the bottom of the page, show anything left (short pages can't scroll far enough to trigger it)
+  addEventListener("scroll", function(){
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4)
+      els.forEach(function(el){ if (el.getBoundingClientRect().top < innerHeight) el.classList.add("in"); });
+  }, { passive: true });
   // safety net: never leave content hidden
   setTimeout(function(){ els.forEach(function(el){ if (el.getBoundingClientRect().top < innerHeight) el.classList.add("in"); }); }, 1800);
 })();
 
-/* ---- clips: respect reduced motion; tap to pause/play ---- */
+/* ---- clips: load and play only while visible (saves data); tap to pause/play; respect reduced motion ---- */
 (function(){
+  var vids = document.querySelectorAll(".clip video");
+  if (!vids.length) return;
   var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  document.querySelectorAll(".clip video").forEach(function(v){
-    if (reduce){ v.removeAttribute("autoplay"); v.pause(); v.setAttribute("controls",""); }
-    v.addEventListener("click", function(){ v.paused ? v.play() : v.pause(); });
+  if (reduce) return;                       // keep native controls, nothing plays on its own
+  vids.forEach(function(v){
+    v.removeAttribute("controls");
+    v.addEventListener("click", function(){
+      if (v.paused){ v.dataset.user = ""; v.play(); } else { v.dataset.user = "paused"; v.pause(); }
+    });
   });
+  if (!("IntersectionObserver" in window)){ vids.forEach(function(v){ v.play(); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var v = e.target;
+      if (e.isIntersecting){ if (v.dataset.user !== "paused"){ var p = v.play(); if (p && p.catch) p.catch(function(){}); } }
+      else v.pause();
+    });
+  }, { threshold: 0.35 });
+  vids.forEach(function(v){ io.observe(v); });
 })();
 
 /* ---- gallery lightbox ---- */
