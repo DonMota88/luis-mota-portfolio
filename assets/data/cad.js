@@ -66,18 +66,4 @@ window.CADS = [
     grabcad: ""
   },
 
-  {
-    titulo:  { es: "Intake para el robot de FRC (v6)", en: "Intake for the FRC robot (v6)" },
-    descripcion: {
-      es: "Ensamble del intake (versión 6) diseñado en SolidWorks para un robot de FRC Daedalus 7102.",
-      en: "Intake assembly (version 6) designed in SolidWorks for an FRC Daedalus 7102 robot."
-    },
-    software: ["SolidWorks"],
-    imagen: "cad/img/frc-pieza-1.jpg",
-    archivos: [],
-    proyecto: "frc-daedalus",
-    grabcad: "",
-    pendiente: "Pendiente: temporada de este intake, cómo funciona, material y archivo STEP."
-  },
-
 ];
