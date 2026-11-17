@@ -59,7 +59,12 @@
       if (c.proyecto && names[c.proyecto]) links += '<a class="more" href="'+base+'proyectos/'+esc(c.proyecto)+'.html">'+esc(names[c.proyecto])+'</a>';
       if (c.grabcad) links += '<a class="more" href="'+esc(c.grabcad)+'" target="_blank" rel="noopener">GrabCAD</a>';
       return '<article class="cad'+(c.ejemplo?' is-example':'')+'">'
-        + '<figure class="media"><img src="'+base+esc(c.imagen)+'" alt="" loading="lazy" onerror="this.remove()"><span class="ph-txt">'+esc(c.imagen)+'</span></figure>'
+        + '<div class="cad-top"><figure class="media"><img src="'+base+esc(c.imagen)+'" alt="" loading="lazy" onerror="this.remove()"><span class="ph-txt">'+esc(c.imagen)+'</span></figure>'
+        + ((c.imagenes||[]).length > 1 ? '<div class="thumbs" role="group" aria-label="Vistas / Views">'+c.imagenes.map(function(src,i){
+            return '<button type="button" class="th'+(i===0?' on':'')+'" data-src="'+base+esc(src)+'" aria-label="'+(i+1)+' / '+c.imagenes.length+'"><img src="'+base+esc(src)+'" alt="" loading="lazy"></button>';
+          }).join("")+'</div>' : '')
+        + (c.video ? '<figure class="cad-video"><video src="'+base+esc(c.video.src)+'" poster="'+base+esc(c.video.poster)+'" muted loop playsinline controls preload="none"></video><figcaption>'+t(c.video.label)+'</figcaption></figure>' : '')
+        + '</div>'
         + '<div class="pbody">'
         + (c.ejemplo ? '<span class="todo" style="margin:0 0 1rem">Ejemplo: reemplázalo con tu CAD real en assets/data/cad.js</span>' : '')
         + (c.pendiente ? '<span class="todo" style="margin:0 0 1rem">'+esc(c.pendiente)+'</span>' : '')
@@ -71,4 +76,13 @@
         + '</div></article>';
     }).join("");
   }
+
+  /* swap the main CAD image when a thumbnail is chosen */
+  document.addEventListener("click", function(e){
+    var b = e.target.closest && e.target.closest(".cad .th");
+    if (!b) return;
+    var card = b.closest(".cad"), main = card.querySelector(".media img");
+    if (main) main.src = b.getAttribute("data-src");
+    card.querySelectorAll(".th").forEach(function(x){ x.classList.toggle("on", x === b); });
+  });
 })();

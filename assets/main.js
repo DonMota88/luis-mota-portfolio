@@ -79,7 +79,7 @@
 
 /* ---- clips: load and play only while visible (saves data); tap to pause/play; respect reduced motion ---- */
 (function(){
-  var vids = document.querySelectorAll(".clip video");
+  var vids = document.querySelectorAll(".clip video, .cad-video video");
   if (!vids.length) return;
   var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce) return;                       // keep native controls, nothing plays on its own
